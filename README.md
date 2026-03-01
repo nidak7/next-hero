@@ -3,8 +3,11 @@
 Assignment implementation using Next.js, React, Tailwind CSS, and GSAP.
 
 ## Submission Links
-- Live webpage: _to be added after first GitHub Pages deployment_
-- GitHub repository: _to be added after repository publish_
+- Live webpage: https://nidak7.github.io/next-hero/
+- GitHub repository: https://github.com/nidak7/next-hero
+
+## Originality Note
+This project was implemented from scratch in this repository using the assignment requirements and visual inspiration from the provided reference link. Layout structure, styling choices, animation timing, and code organization are custom to this submission.
 
 ## Features Implemented
 - Full-screen hero section (above the fold)
