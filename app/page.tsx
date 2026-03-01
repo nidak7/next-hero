@@ -2,9 +2,7 @@
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Image from "next/image";
-import { useLayoutEffect, useRef } from "react";
-import carImage from "../public/car.png";
+import { useLayoutEffect, useRef, useState } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,6 +19,7 @@ export default function Home() {
   const rootRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLElement>(null);
   const visualRef = useRef<HTMLDivElement>(null);
+  const [carSrc, setCarSrc] = useState("car.png");
 
   useLayoutEffect(() => {
     if (!rootRef.current) return;
@@ -154,13 +153,18 @@ export default function Home() {
             style={{ willChange: "transform, opacity" }}
           >
             <div className="hero-glow absolute inset-0 rounded-full bg-cyan-400/30 blur-3xl" />
-            <Image
-              src={carImage}
+            <img
+              src={carSrc}
               alt="Main hero visual"
-              fill
-              priority
-              sizes="(max-width: 768px) 18rem, 28rem"
-              className="object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.55)]"
+              loading="eager"
+              decoding="async"
+              draggable={false}
+              onError={() => {
+                if (carSrc !== "/next-hero/car.png") {
+                  setCarSrc("/next-hero/car.png");
+                }
+              }}
+              className="h-full w-full object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.55)]"
             />
           </div>
         </div>
