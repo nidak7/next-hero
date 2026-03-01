@@ -1,7 +1,20 @@
 import type { NextConfig } from "next";
 
+const repoName = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "";
+const isProjectPagesRepo = repoName !== "" && !repoName.endsWith(".github.io");
+const basePath =
+  process.env.NODE_ENV === "production" && isProjectPagesRepo
+    ? `/${repoName}`
+    : "";
+
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: "export",
+  trailingSlash: true,
+  images: {
+    unoptimized: true,
+  },
+  basePath,
+  assetPrefix: basePath || undefined,
 };
 
 export default nextConfig;
