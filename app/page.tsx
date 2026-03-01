@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import { useLayoutEffect, useRef } from "react";
+import carImage from "../public/car.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -154,7 +155,7 @@ export default function Home() {
           >
             <div className="hero-glow absolute inset-0 rounded-full bg-cyan-400/30 blur-3xl" />
             <Image
-              src="/car.png"
+              src={carImage}
               alt="Main hero visual"
               fill
               priority
